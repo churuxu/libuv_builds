@@ -1,4 +1,4 @@
-version: {build}
+version: 0.{build}
 image: Visual Studio 2013
 environment:
   tag_ver: 1.7.0
