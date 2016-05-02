@@ -1,0 +1,18 @@
+version: {build}
+image: Visual Studio 2013
+environment:
+  tag_ver: 1.7.0
+build_script:
+- cmd: make.bat $(tag_ver)
+artifacts:
+- path: Release
+  name: Release
+  type: zip
+skip_tags: true
+deploy:
+- provider: GitHub
+  tag: libuv_win32_$(tag_ver)
+  auth_token:
+    secure: Ba9VKWqzpudkrypBUmM4ih6a+zC65UlmQD0DJkx1ffheHm3KozKCB8o92iSfzhm8
+  artifact: Release.zip
+  force_update: true
