@@ -79,5 +79,5 @@ if not exist %DIR_NAME%\build\gyp (
 cmd /c "%DIR_NAME%\vcbuild.bat" x86 shared release || exit 1
 cmd /c "%DIR_NAME%\vcbuild.bat" x86 shared debug || exit 1
 
-7z a libuv.zip %DIR_NAME%\Debug\*.dll %DIR_NAME%\Debug\*.lib %DIR_NAME%\Debug\*.pdb %DIR_NAME%\Release\*.dll %DIR_NAME%\Release\*.lib %DIR_NAME%\Release\*.pdb
+7z a libuv.zip %DIR_NAME%\Debug\libuv.* %DIR_NAME%\Release\libuv.*
 
