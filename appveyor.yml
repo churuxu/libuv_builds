@@ -1,16 +1,22 @@
 version: 0.{build}
-image: Visual Studio 2013
+environment:  
+  vs_ver: vs2010
+  tag_ver: 1.7.0 
+cache: gyp
 build_script:
-- cmd: make.bat 1.7.0
+- cmd: make.bat %tag_ver% %vs_ver%
 artifacts:
-- path: Release
+- path: libuv-$(tag_ver)/Release
   name: Release
   type: zip
+- path: libuv-$(tag_ver)/Debug
+  name: Debug
+  type: zip  
 skip_tags: true
 deploy:
 - provider: GitHub
-  tag: libuv_win32_$(tag_ver)
+  tag: libuv_$(tag_ver)_$(vs_ver)
   auth_token:
     secure: Ba9VKWqzpudkrypBUmM4ih6a+zC65UlmQD0DJkx1ffheHm3KozKCB8o92iSfzhm8
-  artifact: Release.zip
+  artifact: Release.zip Debug.zip
   force_update: true
