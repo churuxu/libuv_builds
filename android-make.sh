@@ -29,7 +29,8 @@ cp -f Application.mk  ${DIR_NAME}/jni/Application.mk  || exit 1
 cd ${DIR_NAME}/jni
 
 NDKCMD=ndk-build
-if [ -d ${NDK_HOME} ]; then
+echo NDK_HOME:${NDK_HOME}
+if [ ! "${NDK_HOME}" == "" ]; then
   NDKCMD=${NDK_HOME}/ndk-build
 fi
 ${NDKCMD} || exit 1
