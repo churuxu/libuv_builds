@@ -1,9 +1,7 @@
 version: 0.{build}
 image: Visual Studio 2013
-environment:
-  tag_ver: 1.7.0
 build_script:
-- cmd: make.bat $(tag_ver)
+- cmd: make.bat 1.7.0
 artifacts:
 - path: Release
   name: Release
