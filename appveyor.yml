@@ -6,17 +6,12 @@ cache: gyp
 build_script:
 - cmd: make.bat %tag_ver% %vs_ver%
 artifacts:
-- path: libuv-$(tag_ver)/Release
-  name: Release
-  type: zip
-- path: libuv-$(tag_ver)/Debug
-  name: Debug
-  type: zip  
+- path: libuv.zip
 skip_tags: true
 deploy:
 - provider: GitHub
   tag: libuv_$(tag_ver)_$(vs_ver)
   auth_token:
     secure: Ba9VKWqzpudkrypBUmM4ih6a+zC65UlmQD0DJkx1ffheHm3KozKCB8o92iSfzhm8
-  artifact: Release.zip Debug.zip
+  artifact: libuv.zip
   force_update: true
