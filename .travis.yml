@@ -1,4 +1,4 @@
 language: android
 
 script:
-- ./android_make.sh
+- ./android-make.sh 1.7.0
