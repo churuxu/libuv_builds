@@ -1,4 +1,5 @@
 language: android
 
 script:
+- chmod +x android-make.sh
 - ./android-make.sh 1.7.0
