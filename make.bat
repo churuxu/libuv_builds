@@ -60,12 +60,14 @@ if not exist %DIR_NAME% (
 
 if not exist gyp (
   echo download gyp tool from googlesource ...
-  git clone https://chromium.googlesource.com/external/gyp.git gyp
+  ping -n 3 chromium.googlesource.com > nul || goto gypgithub
+  cmd /c git clone https://chromium.googlesource.com/external/gyp.git gyp
 )
 
+:gypgithub
 if not exist gyp (
   echo download gyp tool from github ...
-  git clone https://github.com/svn2github/gyp.git gyp || exit 1  
+  cmd /c git clone https://github.com/svn2github/gyp.git gyp || exit 1  
 )
 
 
@@ -79,5 +81,5 @@ if not exist %DIR_NAME%\build\gyp (
 cmd /c "%DIR_NAME%\vcbuild.bat" x86 shared release || exit 1
 cmd /c "%DIR_NAME%\vcbuild.bat" x86 shared debug || exit 1
 
-7z a libuv.zip %DIR_NAME%\Debug\libuv.* %DIR_NAME%\Release\libuv.* %DIR_NAME%\include\* %DIR_NAME%\LICENSE
+7z a libuv_win32.zip %DIR_NAME%\Debug\libuv.* %DIR_NAME%\Release\libuv.* %DIR_NAME%\include\* %DIR_NAME%\LICENSE
 

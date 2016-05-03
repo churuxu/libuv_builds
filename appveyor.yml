@@ -6,12 +6,12 @@ cache: gyp
 build_script:
 - cmd: make.bat %tag_ver% %vs_ver%
 artifacts:
-- path: libuv.zip
+- path: libuv_win32.zip
 skip_tags: true
 deploy:
 - provider: GitHub
   tag: libuv_$(tag_ver)_$(vs_ver)
   auth_token:
     secure: Ba9VKWqzpudkrypBUmM4ih6a+zC65UlmQD0DJkx1ffheHm3KozKCB8o92iSfzhm8
-  artifact: libuv.zip
+  artifact: libuv_win32.zip
   force_update: true
