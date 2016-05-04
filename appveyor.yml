@@ -5,10 +5,6 @@ environment:
     tag_ver: 1.7.0 
   - vs_ver: vc140
     tag_ver: 1.7.0 
-  - vs_ver: vc140
-    tag_ver: 1.8.0 
-  - vs_ver: vc140
-    tag_ver: 1.9.0
 cache: gyp
 build_script:
 - cmd: win32-make.bat %tag_ver% %vs_ver%
