@@ -1,5 +1,8 @@
 language: android
-
+install:
+  - curl -fsSL -o ndk-r10-x86_64.tar.bz2 http://dl.google.com/android/ndk/android-ndk32-r10-linux-x86_64.tar.bz2
+  - tar -jxvf ndk-r10-x86_64.tar.bz2
+  - export NDK_HOME=$(pwd)/$(ls -1|grep ndk|grep -v .bz2)
 script:
 - chmod +x android-make.sh
 - ./android-make.sh 1.7.0
