@@ -1,8 +1,9 @@
 language: android
 install:
-  - curl -fsSL -o ndk.zip http://dl.google.com/android/ndk/android-ndk-r10c-linux-x86_64.bin
-  - unzip ndk.zip
-  - export NDK_HOME=$(pwd)/$(ls -1|grep ndk|grep -v .zip)
+  - curl -fsSL -o ndk.bin http://dl.google.com/android/ndk/android-ndk-r10c-linux-x86_64.bin
+  - chmod +x ndk.bin
+  - ./ndk.bin > /dev/null
+  - export NDK_HOME=$(pwd)/$(ls -1|grep ndk|grep -v .bin)
   - export PATH=$PATH:$NDK_HOME
 script:
   - chmod +x android-make.sh
