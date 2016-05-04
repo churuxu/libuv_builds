@@ -5,9 +5,11 @@ install:
   - ./ndk.bin > /dev/null
   - export NDK_HOME=$(pwd)/$(ls -1|grep ndk|grep -v .bin)
   - export PATH=$PATH:$NDK_HOME
+  - export TAG_VER=1.8.0
+  - export TRAVIS_TAG=libuv_$TAG_VER
 script:
   - chmod +x android-make.sh
-  - ./android-make.sh 1.8.0
+  - ./android-make.sh $TAG_VER
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
