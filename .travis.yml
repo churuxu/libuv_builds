@@ -1,8 +1,9 @@
 language: android
-language: android
-android:
-  components:
-    - ndk
+install:
+  - curl -fsSL -o ndk.tar.bz2 http://dl.google.com/android/ndk/android-ndk32-r10-linux-x86_64.tar.bz2
+  - tar -jxf ndk.tar.bz2
+  - export NDK_HOME=$(pwd)/$(ls -1|grep ndk|grep -v .bz2)
+  - export PATH=$PATH:$NDK_HOME
 script:
   - chmod +x android-make.sh
   - ./android-make.sh 1.8.0
